@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostenloser PDF-Leitfaden | Rechto – Ihre Rechte sichern</title>
+    <meta name="description" content="Melden Sie sich jetzt an und erhalten Sie unseren exklusiven PDF-Leitfaden kostenlos per E-Mail. Erfahren Sie alles über Ihre Rechte und wie Sie diese erfolgreich durchsetzen.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="https://rechto.de" class="logo">
+                <img src="https://rechto.de/wp-content/uploads/2025/11/logo-rechto.png" alt="Rechto Logo">
+            </a>
+            <nav class="nav">
+                <a href="#benefits" class="nav__link">Vorteile</a>
+                <a href="#about" class="nav__link">Über uns</a>
+                <a href="#download" class="btn btn--primary">Jetzt Downloaden</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="download">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="badge">Exklusiv & Kostenlos</span>
+                    <h1 class="hero__title">Sichern Sie sich Ihren <span class="text-gradient">Rechtsschutz-Leitfaden</span></h1>
+                    <p class="hero__text">
+                        Erfahren Sie in unserem kompakten Guide, wie Sie Ihre Rechte ohne finanzielles Risiko durchsetzen können. Melden Sie sich jetzt an und erhalten Sie das PDF sofort per E-Mail.
+                    </p>
+                    
+                    <!-- Brevo Form Placeholder -->
+                    <div class="form-card">
+                        <form id="brevo-form" class="form">
+                            <div class="form__group">
+                                <label for="email" class="form__label">E-Mail-Adresse</label>
+                                <input type="email" id="email" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" required>
+                            </div>
+                            <div class="form__footer">
+                                <button type="submit" class="btn btn--secondary btn--block">PDF jetzt anfordern</button>
+                                <p class="form__hint">Mit der Anmeldung akzeptieren Sie unsere <a href="#">Datenschutzbestimmungen</a>.</p>
+                            </div>
+                        </form>
+                        <div id="form-success" class="form-success hidden">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Fast geschafft!</h3>
+                            <p>Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero__visual">
+                    <div class="mockup-container">
+                        <!-- Path to generated image -->
+                        <img src="assets/pdf-mockup.png" id="pdf-mockup-img" alt="PDF Leitfaden Mockup" class="mockup-img">
+                        <div class="mockup-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits" id="benefits">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Was Sie in diesem PDF erwartet</h2>
+                    <p class="section-subtitle">Kompaktes Wissen für Ihren rechtlichen Erfolg.</p>
+                </div>
+                
+                <div class="benefits__grid">
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Rechtssicherheit</h3>
+                        <p class="benefit-card__text">Erfahren Sie, welche Ansprüche Ihnen wirklich zustehen und wie Sie diese belegen.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Kein Kostenrisiko</h3>
+                        <p class="benefit-card__text">Wir zeigen Ihnen Wege auf, wie Sie Ihr Recht ohne Vorkasse oder Anwaltskosten durchsetzen.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Schnelle Hilfe</h3>
+                        <p class="benefit-card__text">Ein klarer Schritt-für-Schritt-Plan für eine zügige Abwicklung Ihres Falls.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="trust" id="about">
+            <div class="container trust__container">
+                <div class="trust__image">
+                    <img src="https://via.placeholder.com/500x350?text=Rechto+Team" alt="Das Rechto Team">
+                </div>
+                <div class="trust__content">
+                    <h2 class="section-title">Wer steht hinter Rechto?</h2>
+                    <p>Rechto ist Ihr zuverlässiger Partner für die Durchsetzung Ihrer Rechte. Unser Ziel ist es, den Zugang zum Recht für jeden einfach und risikofrei zu gestalten.</p>
+                    <ul class="trust__list">
+                        <li><i class="fas fa-check"></i> Über 10.000 erfolgreich bearbeitete Fälle</li>
+                        <li><i class="fas fa-check"></i> Experten-Netzwerk aus Fachanwälten</li>
+                        <li><i class="fas fa-check"></i> Transparente und faire Abwicklung</li>
+                    </ul>
+                    <a href="https://rechto.de" class="btn btn--outline">Mehr erfahren</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <img src="https://rechto.de/wp-content/uploads/2025/11/logo-rechto.png" alt="Rechto Logo" class="footer__logo">
+                <p>Recht einfach durchsetzen.</p>
+            </div>
+            <div class="footer__links">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Kontakt</a>
+            </div>
+            <div class="footer__social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Rechto. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
