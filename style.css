@@ -46,6 +46,7 @@ h1, h2, h3, h4 {
 .text-gradient {
     background: linear-gradient(135deg, var(--secondary-color), #b8a67d);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -154,7 +155,7 @@ h1, h2, h3, h4 {
 .hero {
     padding: 100px 0;
     background-color: var(--bg-dark);
-    background-image: url('assets/hero-bg.png');
+    background-image: url('assets/rechto_hero_bg_1776667033455.png');
     background-size: cover;
     background-position: center;
     position: relative;
