@@ -408,14 +408,15 @@ h1, h2, h3, h4 {
 .trust__list li {
     margin-bottom: 15px;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 15px;
     font-weight: 500;
     color: var(--primary-color);
 }
 
 .trust__list i {
     color: #4BB543;
+    margin-top: 5px;
 }
 
 /* Footer */
