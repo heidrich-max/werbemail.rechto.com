@@ -43,47 +43,30 @@
                         Sehen Sie auf einen Blick, welche Unternehmen bereits durch unzulässige Werbemails aufgefallen sind – und prüfen Sie Ihren eigenen Fall rechtssicher.
                     </p>
                     
-                    <!-- Brevo Form Container -->
-                    <div class="form-card" id="sib-form-container">
-                        <div id="error-message" class="sib-form-message-panel form-error" style="display: none; color: red; margin-bottom: 1rem;">
-                            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                                <span class="sib-form-message-panel__inner-text">
-                                    Ihre Anmeldung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.
-                                </span>
+                    <!-- Custom Beautiful Form -->
+                    <div class="form-card">
+                        <form id="custom-form" class="form">
+                            <div class="form__group">
+                                <label for="custom-email" class="form__label">E-Mail-Adresse</label>
+                                <input type="email" id="custom-email" class="form__input" placeholder="beispiel@mail.de" required>
                             </div>
-                        </div>
+                            <div class="form__group checkbox-group">
+                                <input type="checkbox" id="custom-privacy" required>
+                                <label for="custom-privacy">Ich akzeptiere die <a href="https://rechto.de/datenschutz/" target="_blank">Datenschutzbestimmungen</a>.</label>
+                            </div>
+                            <div class="form__footer">
+                                <button type="submit" class="btn btn--secondary btn--block">PDF jetzt anfordern</button>
+                                <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
+                            </div>
+                        </form>
                         
-                        <div id="success-message" class="sib-form-message-panel form-success" style="display: none;">
+                        <div id="custom-success" class="form-success hidden">
                             <i class="fas fa-check-circle"></i>
                             <h3>Fast geschafft!</h3>
-                            <p class="sib-form-message-panel__inner-text">Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
+                            <p>Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
                         </div>
-
-                        <div id="sib-container">
-                            <form id="sib-form" method="POST" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" data-type="subscription" class="form">
-                                <div class="form__group sib-input">
-                                    <label for="EMAIL" class="form__label">E-Mail-Adresse</label>
-                                    <input type="email" id="EMAIL" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" data-required="true" required>
-                                </div>
-                                <div class="form__group checkbox-group sib-optin" data-required="true">
-                                    <input type="checkbox" id="OPT_IN" name="OPT_IN" value="1" required>
-                                    <label for="OPT_IN">Ich akzeptiere die <a href="https://rechto.de/datenschutz/" target="_blank">Datenschutzbestimmungen</a>.</label>
-                                </div>
-                                
-                                <!-- Brevo Hidden Fields -->
-                                <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-                                <input type="hidden" name="locale" value="de">
-                                
-                                <div class="form__footer">
-                                    <button form="sib-form" type="submit" class="btn btn--secondary btn--block sib-form-block__button sib-form-block__button-with-loader">
-                                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" style="display:none; width:20px; height:20px; vertical-align:middle; margin-right:10px; fill:currentColor;" viewBox="0 0 512 512">
-                                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                                        </svg>
-                                        PDF jetzt anfordern
-                                    </button>
-                                    <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
-                                </div>
-                            </form>
+                        <div id="custom-error" class="form-error hidden" style="color: #ff4d4d; text-align: center; margin-top: 15px;">
+                            <p>Fehler bei der Anmeldung. Bitte versuchen Sie es erneut.</p>
                         </div>
                     </div>
                 </div>
@@ -218,6 +201,36 @@
         };
         var AUTOHIDE = Boolean(0);
     </script>
+
+    <!-- Raw Brevo Form Hidden Proxy -->
+    <div style="display: none;">
+        <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel"></div>
+            <div id="success-message" class="sib-form-message-panel"></div>
+            <div id="sib-container" class="sib-container--large sib-container--vertical">
+                <form id="sib-form" method="POST" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" data-type="subscription">
+                    <div class="sib-form-block">
+                        <div class="sib-input sib-form-block">
+                            <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" data-required="true" required />
+                        </div>
+                    </div>
+                    <div class="sib-form-block">
+                        <div class="sib-optin sib-form-block" data-required="true">
+                            <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
+                        </div>
+                    </div>
+                    <div class="sib-form-block">
+                        <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                            <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"></svg>
+                            ANMELDEN
+                        </button>
+                    </div>
+                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                    <input type="hidden" name="locale" value="de">
+                </form>
+            </div>
+        </div>
+    </div>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script src="main.js"></script>
 </body>
