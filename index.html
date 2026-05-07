@@ -43,17 +43,23 @@
                         Sehen Sie auf einen Blick, welche Unternehmen bereits durch unzulässige Werbemails aufgefallen sind – und prüfen Sie Ihren eigenen Fall rechtssicher.
                     </p>
                     
-                    <!-- Custom Beautiful Form -->
+                    <!-- Form Container -->
                     <div class="form-card">
-                        <form id="custom-form" class="form">
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                        <form id="custom-form" class="form" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" method="POST" target="hidden_iframe">
                             <div class="form__group">
                                 <label for="custom-email" class="form__label">E-Mail-Adresse</label>
-                                <input type="email" id="custom-email" class="form__input" placeholder="beispiel@mail.de" required>
+                                <input type="email" id="custom-email" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" required>
                             </div>
                             <div class="form__group checkbox-group">
-                                <input type="checkbox" id="custom-privacy" required>
+                                <input type="checkbox" id="custom-privacy" name="OPT_IN" value="1" required>
                                 <label for="custom-privacy">Ich akzeptiere die <a href="https://rechto.de/datenschutz/" target="_blank">Datenschutzbestimmungen</a>.</label>
                             </div>
+                            
+                            <!-- Honeypot -->
+                            <input type="text" name="email_address_check" value="" style="display:none;">
+                            <input type="hidden" name="locale" value="de">
+                            
                             <div class="form__footer">
                                 <button type="submit" class="btn btn--secondary btn--block">PDF jetzt anfordern</button>
                                 <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
@@ -182,56 +188,6 @@
         </div>
     </footer>
 
-    <script>
-        window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
-        window.LOCALE = 'de';
-        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-        window.REQUIRED_ERROR_MESSAGE = "Dieses Feld darf nicht leer sein. ";
-        window.GENERIC_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-        window.INVALID_NUMBER = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-        window.INVALID_DATE = "Bitte gib ein gültiges Datum ein";
-        window.REQUIRED_MULTISELECT_MESSAGE = 'Wähle bitte mindestens eine Option aus';
-        window.translation = {
-            common: {
-                selectedList: '{quantity} Liste ausgewählt',
-                selectedLists: '{quantity} Listen ausgewählt',
-                selectedOption: '{quantity} ausgewählt',
-                selectedOptions: '{quantity} ausgewählt',
-            }
-        };
-        var AUTOHIDE = Boolean(0);
-    </script>
-
-    <!-- Raw Brevo Form Hidden Proxy -->
-    <div class="sib-form" style="position: absolute; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; z-index: -1;">
-        <div id="sib-form-container" class="sib-form-container">
-            <div id="error-message" class="sib-form-message-panel"></div>
-            <div id="success-message" class="sib-form-message-panel"></div>
-            <div id="sib-container" class="sib-container--large sib-container--vertical">
-                <form id="sib-form" method="POST" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" data-type="subscription">
-                    <div class="sib-form-block">
-                        <div class="sib-input sib-form-block">
-                            <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" data-required="true" required />
-                        </div>
-                    </div>
-                    <div class="sib-form-block">
-                        <div class="sib-optin sib-form-block" data-required="true">
-                            <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
-                        </div>
-                    </div>
-                    <div class="sib-form-block">
-                        <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
-                            <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"></svg>
-                            ANMELDEN
-                        </button>
-                    </div>
-                    <input type="text" name="email_address_check" value="" class="input--hidden">
-                    <input type="hidden" name="locale" value="de">
-                </form>
-            </div>
-        </div>
-    </div>
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

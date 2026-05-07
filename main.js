@@ -1,53 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Form Handling - Proxy to hidden Brevo Form
+    // Form Handling - Pure HTML hidden iframe submit
     const customForm = document.getElementById('custom-form');
     if (customForm) {
-        customForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Sync values to hidden Brevo form
-            document.getElementById('EMAIL').value = document.getElementById('custom-email').value;
-            document.getElementById('OPT_IN').checked = document.getElementById('custom-privacy').checked;
-            
-            // Trigger Brevo JS submission
-            const brevoBtn = document.querySelector('#sib-form button[type="submit"]');
-            if (brevoBtn) brevoBtn.click();
+        let isSubmitted = false;
+        
+        customForm.addEventListener('submit', () => {
+            isSubmitted = true;
             
             // Update UI
             const submitBtn = customForm.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Wird gesendet...';
             
-            // Poll for success or error from Brevo
-            const checkStatus = setInterval(() => {
-                const brevoSuccess = document.getElementById('success-message');
-                const brevoError = document.getElementById('error-message');
-                
-                // Brevo JS adds an active class when showing the message
-                const isSuccessActive = brevoSuccess && (brevoSuccess.classList.contains('sib-form-message-panel--active') || brevoSuccess.innerHTML.trim() !== '');
-                const isErrorActive = brevoError && (brevoError.classList.contains('sib-form-message-panel--active') || (brevoError.innerHTML.trim() !== '' && !brevoError.innerHTML.includes('...')));
-                
-                if (isSuccessActive) {
-                    clearInterval(checkStatus);
-                    customForm.classList.add('hidden');
-                    document.getElementById('custom-success').classList.remove('hidden');
-                } else if (isErrorActive) {
-                    clearInterval(checkStatus);
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'PDF jetzt anfordern';
-                    document.getElementById('custom-error').classList.remove('hidden');
-                }
-            }, 500);
-            
-            // Timeout safety (10 seconds)
+            // The browser natively posts the form data to the hidden iframe.
+            // Since we can't reliably read cross-origin iframe load events in all browsers 
+            // without errors, we simply wait 1.5 seconds and show success.
+            // Brevo is very fast at processing standard POSTs.
             setTimeout(() => {
-                clearInterval(checkStatus);
-                if (submitBtn.disabled) {
-                    // Fallback if Brevo takes too long or fails silently
+                if (isSubmitted) {
                     customForm.classList.add('hidden');
                     document.getElementById('custom-success').classList.remove('hidden');
+                    
+                    // Smooth scroll to top of form card
+                    document.getElementById('custom-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-            }, 10000);
+            }, 1500);
         });
     }
 
