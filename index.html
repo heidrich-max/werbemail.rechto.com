@@ -45,7 +45,7 @@
                     
                     <!-- Brevo Form Container -->
                     <div class="form-card" id="sib-form-container">
-                        <div id="error-message" class="sib-form-message-panel form-error hidden" style="color: red; margin-bottom: 1rem;">
+                        <div id="error-message" class="sib-form-message-panel form-error" style="display: none; color: red; margin-bottom: 1rem;">
                             <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                                 <span class="sib-form-message-panel__inner-text">
                                     Ihre Anmeldung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         
-                        <div id="success-message" class="sib-form-message-panel form-success hidden">
+                        <div id="success-message" class="sib-form-message-panel form-success" style="display: none;">
                             <i class="fas fa-check-circle"></i>
                             <h3>Fast geschafft!</h3>
                             <p class="sib-form-message-panel__inner-text">Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
@@ -75,7 +75,12 @@
                                 <input type="hidden" name="locale" value="de">
                                 
                                 <div class="form__footer">
-                                    <button form="sib-form" type="submit" class="btn btn--secondary btn--block sib-form-block__button">PDF jetzt anfordern</button>
+                                    <button form="sib-form" type="submit" class="btn btn--secondary btn--block sib-form-block__button sib-form-block__button-with-loader">
+                                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" style="display:none; width:20px; height:20px; vertical-align:middle; margin-right:10px; fill:currentColor;" viewBox="0 0 512 512">
+                                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                        </svg>
+                                        PDF jetzt anfordern
+                                    </button>
                                     <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
                                 </div>
                             </form>
