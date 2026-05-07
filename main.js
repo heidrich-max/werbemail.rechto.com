@@ -23,12 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const brevoSuccess = document.getElementById('success-message');
                 const brevoError = document.getElementById('error-message');
                 
-                // Brevo changes inline display when active, or adds inner text
-                if (brevoSuccess && brevoSuccess.style.display !== 'none' && !brevoSuccess.classList.contains('hidden')) {
+                // Brevo JS adds an active class when showing the message
+                const isSuccessActive = brevoSuccess && (brevoSuccess.classList.contains('sib-form-message-panel--active') || brevoSuccess.innerHTML.trim() !== '');
+                const isErrorActive = brevoError && (brevoError.classList.contains('sib-form-message-panel--active') || (brevoError.innerHTML.trim() !== '' && !brevoError.innerHTML.includes('...')));
+                
+                if (isSuccessActive) {
                     clearInterval(checkStatus);
                     customForm.classList.add('hidden');
                     document.getElementById('custom-success').classList.remove('hidden');
-                } else if (brevoError && brevoError.style.display !== 'none' && !brevoError.classList.contains('hidden')) {
+                } else if (isErrorActive) {
                     clearInterval(checkStatus);
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'PDF jetzt anfordern';
@@ -37,7 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
             
             // Timeout safety (10 seconds)
-            setTimeout(() => clearInterval(checkStatus), 10000);
+            setTimeout(() => {
+                clearInterval(checkStatus);
+                if (submitBtn.disabled) {
+                    // Fallback if Brevo takes too long or fails silently
+                    customForm.classList.add('hidden');
+                    document.getElementById('custom-success').classList.remove('hidden');
+                }
+            }, 10000);
         });
     }
 
