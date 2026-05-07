@@ -45,7 +45,9 @@
                     
                     <!-- Brevo Form Placeholder -->
                     <div class="form-card">
-                        <form id="brevo-form" class="form" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" method="POST" data-type="subscription">
+                        <!-- Hidden Iframe to prevent page redirect on submit -->
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                        <form id="brevo-form" class="form" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" method="POST" target="hidden_iframe" data-type="subscription">
                             <div class="form__group">
                                 <label for="email" class="form__label">E-Mail-Adresse</label>
                                 <input type="email" id="email" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" required>

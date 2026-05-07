@@ -4,35 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const formSuccess = document.getElementById('form-success');
 
     if (brevoForm) {
-        brevoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
+        let isSubmitted = false;
+        
+        brevoForm.addEventListener('submit', () => {
+            isSubmitted = true;
             const submitBtn = brevoForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Wird gesendet...';
-            
-            const formData = new FormData(brevoForm);
-            
-            fetch(brevoForm.action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Allows submitting the form data across domains without CORS issues
-            }).then(() => {
-                // Since mode is 'no-cors', we can't read the response properly.
-                // We assume success if the fetch completes.
-                brevoForm.classList.add('hidden');
-                formSuccess.classList.remove('hidden');
-                
-                // Optional: Smooth scroll to top of form card
-                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }).catch((error) => {
-                console.error('Error submitting form:', error);
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-                alert('Es gab einen Fehler bei der Anmeldung. Bitte versuchen Sie es später erneut.');
-            });
         });
+
+        const hiddenIframe = document.getElementById('hidden_iframe');
+        if (hiddenIframe) {
+            hiddenIframe.addEventListener('load', () => {
+                if (isSubmitted) {
+                    brevoForm.classList.add('hidden');
+                    formSuccess.classList.remove('hidden');
+                    
+                    // Smooth scroll to top of form card
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
     }
 
     // Scroll Reveal Animation (Simulated without external libs)
