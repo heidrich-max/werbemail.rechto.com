@@ -43,33 +43,42 @@
                         Sehen Sie auf einen Blick, welche Unternehmen bereits durch unzulässige Werbemails aufgefallen sind – und prüfen Sie Ihren eigenen Fall rechtssicher.
                     </p>
                     
-                    <!-- Brevo Form Placeholder -->
-                    <div class="form-card">
-                        <!-- Hidden Iframe to prevent page redirect on submit -->
-                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-                        <form id="brevo-form" class="form" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" method="POST" target="hidden_iframe" data-type="subscription">
-                            <div class="form__group">
-                                <label for="email" class="form__label">E-Mail-Adresse</label>
-                                <input type="email" id="email" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" required>
+                    <!-- Brevo Form Container -->
+                    <div class="form-card" id="sib-form-container">
+                        <div id="error-message" class="sib-form-message-panel form-error hidden" style="color: red; margin-bottom: 1rem;">
+                            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                <span class="sib-form-message-panel__inner-text">
+                                    Ihre Anmeldung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.
+                                </span>
                             </div>
-                            <div class="form__group checkbox-group">
-                                <input type="checkbox" id="privacy" name="OPT_IN" value="1" required>
-                                <label for="privacy">Ich akzeptiere die <a href="https://rechto.de/datenschutz/" target="_blank">Datenschutzbestimmungen</a>.</label>
-                            </div>
-                            
-                            <!-- Brevo Hidden Fields -->
-                            <input type="text" name="email_address_check" value="" style="display:none;">
-                            <input type="hidden" name="locale" value="de">
-                            
-                            <div class="form__footer">
-                                <button type="submit" class="btn btn--secondary btn--block">PDF jetzt anfordern</button>
-                                <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
-                            </div>
-                        </form>
-                        <div id="form-success" class="form-success hidden">
+                        </div>
+                        
+                        <div id="success-message" class="sib-form-message-panel form-success hidden">
                             <i class="fas fa-check-circle"></i>
                             <h3>Fast geschafft!</h3>
-                            <p>Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
+                            <p class="sib-form-message-panel__inner-text">Bitte bestätigen Sie Ihre E-Mail-Adresse in Ihrem Posteingang, um das PDF zu erhalten.</p>
+                        </div>
+
+                        <div id="sib-container">
+                            <form id="sib-form" method="POST" action="https://88cca040.sibforms.com/serve/MUIFAO5JXk9z3TRuzODSXhNPuqrB7-k4C-1g1gG4nbJQMbk_VpzGsr1zGNICHgDw7yN6XBkndI6j0MoGyua0o2gzJKkejmdYGb1jIdpwE4KD6PBX4KsiYzQLF8UkneIYYCUPJVVv61ktp0YUf1zuTAc3nXij9VQgzAe-Kjc4HsG8xssmGGYa-LnhC9Td_-cLNZnBEZd8dn3m8buR" data-type="subscription" class="form">
+                                <div class="form__group sib-input">
+                                    <label for="EMAIL" class="form__label">E-Mail-Adresse</label>
+                                    <input type="email" id="EMAIL" name="EMAIL" class="form__input" placeholder="beispiel@mail.de" data-required="true" required>
+                                </div>
+                                <div class="form__group checkbox-group sib-optin" data-required="true">
+                                    <input type="checkbox" id="OPT_IN" name="OPT_IN" value="1" required>
+                                    <label for="OPT_IN">Ich akzeptiere die <a href="https://rechto.de/datenschutz/" target="_blank">Datenschutzbestimmungen</a>.</label>
+                                </div>
+                                
+                                <!-- Brevo Hidden Fields -->
+                                <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+                                <input type="hidden" name="locale" value="de">
+                                
+                                <div class="form__footer">
+                                    <button form="sib-form" type="submit" class="btn btn--secondary btn--block sib-form-block__button">PDF jetzt anfordern</button>
+                                    <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -185,6 +194,26 @@
         </div>
     </footer>
 
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
+        window.LOCALE = 'de';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
+        window.REQUIRED_ERROR_MESSAGE = "Dieses Feld darf nicht leer sein. ";
+        window.GENERIC_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
+        window.INVALID_NUMBER = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
+        window.INVALID_DATE = "Bitte gib ein gültiges Datum ein";
+        window.REQUIRED_MULTISELECT_MESSAGE = 'Wähle bitte mindestens eine Option aus';
+        window.translation = {
+            common: {
+                selectedList: '{quantity} Liste ausgewählt',
+                selectedLists: '{quantity} Listen ausgewählt',
+                selectedOption: '{quantity} ausgewählt',
+                selectedOptions: '{quantity} ausgewählt',
+            }
+        };
+        var AUTOHIDE = Boolean(0);
+    </script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

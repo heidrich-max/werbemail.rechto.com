@@ -1,31 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Form Handling
-    const brevoForm = document.getElementById('brevo-form');
-    const formSuccess = document.getElementById('form-success');
-
-    if (brevoForm) {
-        let isSubmitted = false;
-        
-        brevoForm.addEventListener('submit', () => {
-            isSubmitted = true;
-            const submitBtn = brevoForm.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Wird gesendet...';
-        });
-
-        const hiddenIframe = document.getElementById('hidden_iframe');
-        if (hiddenIframe) {
-            hiddenIframe.addEventListener('load', () => {
-                if (isSubmitted) {
-                    brevoForm.classList.add('hidden');
-                    formSuccess.classList.remove('hidden');
-                    
-                    // Smooth scroll to top of form card
-                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        }
-    }
+    // Wir überlassen die Formular-Logik nun dem originalen Brevo-Script, 
+    // das wir in die index.html einbinden.
 
     // Scroll Reveal Animation (Simulated without external libs)
     const revealElements = document.querySelectorAll('.benefit-card, .trust__content, .trust__image, .section-header');
