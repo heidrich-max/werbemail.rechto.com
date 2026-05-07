@@ -7,22 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
         brevoForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // In a real Brevo integration, you would either:
-            // 1. Let the form post to the Brevo URL (standard)
-            // 2. Use fetch to send data to Brevo API via a backend
-            
-            // For this demo, we simulate success
             const submitBtn = brevoForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Wird gesendet...';
             
-            setTimeout(() => {
+            const formData = new FormData(brevoForm);
+            
+            fetch(brevoForm.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Allows submitting the form data across domains without CORS issues
+            }).then(() => {
+                // Since mode is 'no-cors', we can't read the response properly.
+                // We assume success if the fetch completes.
                 brevoForm.classList.add('hidden');
                 formSuccess.classList.remove('hidden');
                 
                 // Optional: Smooth scroll to top of form card
                 formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 1500);
+            }).catch((error) => {
+                console.error('Error submitting form:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('Es gab einen Fehler bei der Anmeldung. Bitte versuchen Sie es später erneut.');
+            });
         });
     }
 
