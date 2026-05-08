@@ -179,7 +179,7 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 60px;
     align-items: center;
 }
@@ -305,12 +305,13 @@ h1, h2, h3, h4 {
     height: auto;
     border-radius: 10px;
     box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
-    transform: rotateY(-15deg) rotateX(5deg);
+    transform: rotateY(-10deg) rotateX(2deg) scale(1.1);
+    transform-origin: center;
     transition: transform 0.5s ease;
 }
 
 .mockup-container:hover .mockup-img {
-    transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg) scale(1.15);
 }
 
 .mockup-glow {
