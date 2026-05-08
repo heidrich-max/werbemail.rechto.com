@@ -295,32 +295,28 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
-@keyframes pulseGlow {
-    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
-}
-
 .mockup-container {
     position: relative;
+    perspective: 1000px;
 }
 
 .mockup-img {
-    position: relative;
-    z-index: 2;
-    width: 110%;
+    width: 115%;
     max-width: none;
-    margin-left: -5%;
+    margin-left: -7.5%;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: translateY(0);
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-radius: 10px;
+    box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-10deg) rotateX(2deg) translateZ(0);
+    transform-origin: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    backface-visibility: hidden;
     image-rendering: -webkit-optimize-contrast;
 }
 
 .mockup-container:hover .mockup-img {
-    transform: translateY(-8px);
-    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transform: rotateY(0deg) rotateX(0deg) translateZ(0);
+    box-shadow: 25px 35px 70px rgba(0, 0, 0, 0.6);
 }
 
 .mockup-glow {
@@ -330,10 +326,8 @@ h1, h2, h3, h4 {
     transform: translate(-50%, -50%);
     width: 120%;
     height: 120%;
-    background: radial-gradient(circle at center, rgba(220, 201, 157, 0.15) 0%, rgba(255, 62, 85, 0.05) 40%, transparent 70%);
-    z-index: 1;
-    filter: blur(30px);
-    animation: pulseGlow 4s ease-in-out infinite alternate;
+    background: radial-gradient(circle, rgba(220, 201, 157, 0.15) 0%, transparent 70%);
+    z-index: -1;
 }
 
 /* Benefits Section */
