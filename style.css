@@ -301,19 +301,22 @@ h1, h2, h3, h4 {
 }
 
 .mockup-img {
-    width: 100%;
+    width: 115%;
+    max-width: none;
+    margin-left: -7.5%;
     height: auto;
     border-radius: 10px;
     box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
-    transform: scale(1.1) translateZ(0);
+    transform: translateZ(0);
     transform-origin: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
     backface-visibility: hidden;
     image-rendering: -webkit-optimize-contrast;
 }
 
 .mockup-container:hover .mockup-img {
-    transform: scale(1.15) translateZ(0);
+    transform: scale(1.05) translateZ(0);
+    box-shadow: 25px 35px 70px rgba(0, 0, 0, 0.6);
 }
 
 .mockup-glow {
