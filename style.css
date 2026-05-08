@@ -305,7 +305,7 @@ h1, h2, h3, h4 {
     height: auto;
     border-radius: 10px;
     box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
-    transform: rotateY(-10deg) rotateX(2deg) scale(1.1) translateZ(0);
+    transform: translateZ(0);
     transform-origin: center;
     transition: transform 0.5s ease;
     backface-visibility: hidden;
@@ -313,7 +313,7 @@ h1, h2, h3, h4 {
 }
 
 .mockup-container:hover .mockup-img {
-    transform: rotateY(0deg) rotateX(0deg) scale(1.15);
+    transform: scale(1.05) translateZ(0);
 }
 
 .mockup-glow {
