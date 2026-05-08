@@ -305,9 +305,11 @@ h1, h2, h3, h4 {
     height: auto;
     border-radius: 10px;
     box-shadow: 20px 30px 60px rgba(0, 0, 0, 0.5);
-    transform: rotateY(-10deg) rotateX(2deg) scale(1.1);
+    transform: rotateY(-10deg) rotateX(2deg) scale(1.1) translateZ(0);
     transform-origin: center;
     transition: transform 0.5s ease;
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .mockup-container:hover .mockup-img {
@@ -399,6 +401,9 @@ h1, h2, h3, h4 {
     width: 100%;
     border-radius: 24px;
     box-shadow: var(--shadow);
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .trust__list {
