@@ -250,6 +250,13 @@ h1, h2, h3, h4 {
     text-decoration: none;
 }
 
+/* Google requires the reCAPTCHA badge OR an equivalent text disclosure
+   (used above) to remain visible - since we show the text, hide the
+   floating badge that otherwise overlaps other page content. */
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
 .checkbox-group {
     display: flex;
     align-items: flex-start;
