@@ -3,7 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const customForm = document.getElementById('custom-form');
     if (customForm) {
         let isSubmitted = false;
-        
+
+        // Called by Google reCAPTCHA (invisible) once it has verified the
+        // submit click as human. Re-triggers the real form submission,
+        // which then runs through the 'submit' handler below as usual.
+        window.onRecaptchaSuccess = () => customForm.requestSubmit();
+
         customForm.addEventListener('submit', () => {
             isSubmitted = true;
             

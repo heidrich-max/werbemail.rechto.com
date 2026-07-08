@@ -65,7 +65,11 @@
                             <input type="hidden" name="locale" value="de">
                             
                             <div class="form__footer">
-                                <button type="submit" class="btn btn--secondary btn--block">PDF jetzt anfordern</button>
+                                <button type="submit"
+                                        class="btn btn--secondary btn--block g-recaptcha"
+                                        data-sitekey="6LfT8kktAAAAAM-0iFBuIcJSyl5brMOuzXYG--71"
+                                        data-size="invisible"
+                                        data-callback="onRecaptchaSuccess">PDF jetzt anfordern</button>
                                 <p class="form__hint">Kostenlose Anmeldung. Abmeldung jederzeit möglich.</p>
                             </div>
                         </form>
@@ -193,5 +197,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=de" async defer></script>
 </body>
 </html>
